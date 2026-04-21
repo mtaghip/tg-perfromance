@@ -13,10 +13,8 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { name: 'James T.', location: 'Bedford', text: 'Bought a BMW M3 from TG Performance last month — the whole process was smooth and transparent. Car was exactly as described, no hidden surprises whatsoever.' },
-  { name: 'Sarah K.', location: 'Milton Keynes', text: 'Used them to part exchange my old Audi. Got a fair price without any back and forth. The team were friendly and professional throughout. Now in an S3 I love.' },
-  { name: 'Daniel R.', location: 'Luton', text: "Third car I've bought from TG Performance. Stock is always well-priced and properly prepared. Finance was sorted quickly. Won't go anywhere else." },
-  { name: 'Michelle B.', location: 'St Albans', text: 'Was nervous about buying a used performance car but the team put me at ease immediately. Everything was fully transparent. Brilliant experience from start to finish.' },
+  { name: 'Brenda M.', location: 'Carnforth, Lancashire', text: "Excellent service — nothing was too much trouble. I was unable to view the Mini Cooper in person so they delivered it all the way to Lancashire. This is my first car in a long time and I was a bit worried buying online, but the car is great. It's put the joy into driving again. I would recommend this garage for their professional attitude." },
+  { name: 'Louise B.', location: 'Verified Feefo Review', text: "The owner is incredibly honest. He actually recommends cars NOT to buy if he knows they'll cause future headaches — he isn't just trying to sell anything. He genuinely cares about steering customers in the right direction. That kind of integrity is priceless. I'd absolutely recommend him to anyone. Whether you're local or willing to drive to get there, trust me, it's worth the journey." },
 ];
 
 const LOCAL_BUSINESS_LD = {

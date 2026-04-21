@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Head from 'next/head';
+import Seo from '../components/Seo';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -24,10 +24,10 @@ export default function ContactPage() {
 
   return (
     <>
-      <Head>
-        <title>Contact – TG Performance Cars</title>
-        <meta name="description" content="Get in touch with TG Performance Cars. Located in Flitwick, Bedfordshire. Call, email, or send us a message." />
-      </Head>
+      <Seo
+        title="Contact Us"
+        description="Get in touch with TG Performance Cars in Flitwick, Bedfordshire. Call, WhatsApp, email, or send us a message online."
+      />
 
       <div className="page-hero">
         <div className="container">
@@ -38,53 +38,76 @@ export default function ContactPage() {
 
       <section>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
+          <div className="two-col">
 
-            {/* Contact Info */}
+            {/* Info column */}
             <div>
               <h2 style={{ fontSize: '1.5rem', marginBottom: '1.75rem' }}>Contact Information</h2>
 
               {[
-                { label: 'Address', value: 'Flitwick, Bedfordshire, England', icon: '📍' },
-                { label: 'Phone', value: '01234 567 890', href: 'tel:+441234567890', icon: '📞' },
-                { label: 'Email', value: 'info@tgperformancecars.co.uk', href: 'mailto:info@tgperformancecars.co.uk', icon: '✉️' },
-              ].map(({ label, value, href, icon }) => (
+                { label: 'Address', value: 'Flitwick, Bedfordshire, England', href: null },
+                { label: 'Phone', value: '01234 567 890', href: 'tel:+441234567890' },
+                { label: 'WhatsApp', value: 'Message us on WhatsApp', href: 'https://wa.me/441234567890' },
+                { label: 'Email', value: 'info@tgperformancecars.co.uk', href: 'mailto:info@tgperformancecars.co.uk' },
+              ].map(({ label, value, href }) => (
                 <div key={label} style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.1rem', marginTop: '0.1rem' }}>{icon}</div>
+                  <div style={{ width: '36px', height: '36px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', flexShrink: 0 }}>
+                    {label === 'Address' && '📍'}
+                    {label === 'Phone' && '📞'}
+                    {label === 'WhatsApp' && '💬'}
+                    {label === 'Email' && '✉️'}
+                  </div>
                   <div>
-                    <p style={{ color: '#666', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.2rem' }}>{label}</p>
+                    <p style={{ color: '#555', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.2rem' }}>{label}</p>
                     {href ? (
-                      <a href={href} style={{ color: '#C9A84C', fontSize: '1rem', fontWeight: 500 }}>{value}</a>
+                      <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
+                        style={{ color: '#C9A84C', fontSize: '0.95rem', fontWeight: 500 }}>
+                        {value}
+                      </a>
                     ) : (
-                      <p style={{ fontSize: '1rem' }}>{value}</p>
+                      <p style={{ fontSize: '0.95rem' }}>{value}</p>
                     )}
                   </div>
                 </div>
               ))}
 
-              <div style={{ marginTop: '2.5rem', padding: '1.5rem', background: '#111', border: '1px solid #1e1e1e', borderRadius: '8px' }}>
-                <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '1rem' }}>Opening Hours</h3>
+              <div style={{ marginTop: '0.5rem', padding: '1.5rem', background: '#111', border: '1px solid #1e1e1e', borderRadius: '8px' }}>
+                <h3 style={{ fontSize: '0.82rem', fontWeight: 700, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Opening Hours</h3>
                 {[
                   ['Monday – Friday', '9:00am – 6:00pm'],
                   ['Saturday', '9:00am – 5:00pm'],
                   ['Sunday', 'By appointment'],
                 ].map(([day, hours]) => (
                   <div key={day} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid #1a1a1a', fontSize: '0.875rem' }}>
-                    <span style={{ color: '#888' }}>{day}</span>
-                    <span>{hours}</span>
+                    <span style={{ color: '#777' }}>{day}</span>
+                    <span style={{ color: '#ccc' }}>{hours}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Map */}
+              <div style={{ marginTop: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #1e1e1e' }}>
+                <iframe
+                  title="TG Performance Cars location — Flitwick, Bedfordshire"
+                  src="https://maps.google.com/maps?q=Flitwick,Bedfordshire,UK&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, display: 'block', filter: 'grayscale(0.3) invert(0.85) hue-rotate(180deg)' }}
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
             </div>
 
-            {/* Enquiry Form */}
+            {/* Form column */}
             <div style={{ background: '#111', border: '1px solid #1e1e1e', borderRadius: '8px', padding: '2rem' }}>
-              <h2 style={{ fontSize: '1.3rem', marginBottom: '1.5rem' }}>Send an Enquiry</h2>
+              <h2 style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>Send an Enquiry</h2>
 
               {status === 'sent' ? (
-                <div style={{ textAlign: 'center', padding: '2.5rem', color: '#C9A84C' }}>
-                  <p style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Message Sent!</p>
-                  <p style={{ color: '#777', fontSize: '0.9rem' }}>We'll get back to you as soon as possible.</p>
+                <div style={{ textAlign: 'center', padding: '3rem 1rem', color: '#C9A84C' }}>
+                  <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>✓</div>
+                  <p style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.4rem' }}>Message Sent!</p>
+                  <p style={{ color: '#777', fontSize: '0.875rem' }}>We'll get back to you as soon as possible.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
@@ -112,6 +135,9 @@ export default function ContactPage() {
                   <button type="submit" className="btn btn-gold" style={{ width: '100%' }} disabled={status === 'sending'}>
                     {status === 'sending' ? 'Sending...' : 'Send Message'}
                   </button>
+                  <p style={{ color: '#444', fontSize: '0.75rem', marginTop: '0.75rem', textAlign: 'center' }}>
+                    Or WhatsApp us at <a href="https://wa.me/441234567890" style={{ color: '#C9A84C' }}>+44 1234 567 890</a>
+                  </p>
                 </form>
               )}
             </div>
@@ -119,14 +145,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </>
   );
 }

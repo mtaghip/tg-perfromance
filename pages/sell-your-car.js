@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Seo from '../components/Seo';
+import { gtmEvent } from '../lib/gtm';
 
 const REASONS = [
   { title: 'Fast Process', body: 'Get a valuation within 24 hours. We can complete quickly if the car is right.' },
@@ -27,7 +28,12 @@ export default function SellYourCarPage() {
           message: `SELL MY CAR REQUEST\nReg: ${form.reg}\nMileage: ${form.mileage}\nNotes: ${form.notes}`,
         }),
       });
-      setStatus(res.ok ? 'sent' : 'error');
+      if (res.ok) {
+        gtmEvent('generate_lead', { form_type: 'sell_your_car', reg: form.reg });
+        setStatus('sent');
+      } else {
+        setStatus('error');
+      }
     } catch {
       setStatus('error');
     }

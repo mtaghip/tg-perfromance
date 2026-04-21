@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Seo from '../../components/Seo';
 import { fetchVehicle, fetchStock } from '../../lib/autotrader';
+import { gtmEvent } from '../../lib/gtm';
 
 const SPEC_LABELS = [
   ['make', 'Make'],
@@ -43,7 +44,16 @@ function EnquiryForm({ car }) {
           vehicleName: `${car.year} ${car.make} ${car.model}`,
         }),
       });
-      setStatus(res.ok ? 'sent' : 'error');
+      if (res.ok) {
+        gtmEvent('generate_lead', {
+          form_type: 'vehicle_enquiry',
+          vehicle_id: car.id,
+          vehicle_name: `${car.year} ${car.make} ${car.model}`,
+        });
+        setStatus('sent');
+      } else {
+        setStatus('error');
+      }
     } catch {
       setStatus('error');
     }

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /api/feed.xml
+Disallow: /api/
+
+Sitemap: https://www.tgperformancecars.co.uk/sitemap.xml

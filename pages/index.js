@@ -15,6 +15,7 @@ const SERVICES = [
 const TESTIMONIALS = [
   { name: 'Brenda M.', location: 'Carnforth, Lancashire', text: "Excellent service — nothing was too much trouble. I was unable to view the Mini Cooper in person so they delivered it all the way to Lancashire. This is my first car in a long time and I was a bit worried buying online, but the car is great. It's put the joy into driving again. I would recommend this garage for their professional attitude." },
   { name: 'Louise B.', location: 'Verified Feefo Review', text: "The owner is incredibly honest. He actually recommends cars NOT to buy if he knows they'll cause future headaches — he isn't just trying to sell anything. He genuinely cares about steering customers in the right direction. That kind of integrity is priceless. I'd absolutely recommend him to anyone. Whether you're local or willing to drive to get there, trust me, it's worth the journey." },
+  { name: 'Tony R.', location: 'Verified Feefo Review', text: "Bought my BMW from TG Performance and couldn't be happier. The car was exactly as described — low mileage, full service history, and in immaculate condition. Great peace of mind knowing it had been fully checked." },
 ];
 
 const LOCAL_BUSINESS_LD = {

@@ -27,7 +27,7 @@ export default async function handler(req, res) {
   // });
   // await transporter.sendMail({
   //   from: `"TG Performance" <${process.env.EMAIL_SMTP_USER}>`,
-  //   to: 'info@tgperformancecars.co.uk',
+  //   to: 'mtaghip@gmail.com',
   //   subject: vehicleName ? `Enquiry: ${vehicleName}` : 'New Website Enquiry',
   //   text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
   // });

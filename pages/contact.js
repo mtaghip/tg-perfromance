@@ -89,7 +89,7 @@ export default function ContactPage() {
               <div style={{ marginTop: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #1e1e1e' }}>
                 <iframe
                   title="TG Performance Cars location — Flitwick, Bedfordshire"
-                  src="https://maps.google.com/maps?q=Flitwick,Bedfordshire,UK&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=MK45+5DJ&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="220"
                   style={{ border: 0, display: 'block', filter: 'grayscale(0.3) invert(0.85) hue-rotate(180deg)' }}

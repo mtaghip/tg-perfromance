@@ -24,7 +24,7 @@ const STEPS = [
   { n: '04', title: 'Drive Away', body: 'Sign the agreement and collect your car.' },
 ];
 
-const REPRESENTATIVE_APR = 9.9;
+const REPRESENTATIVE_APR = 13.4;
 
 function calcMonthly(price, deposit, termMonths, apr) {
   const principal = Math.max(0, price - deposit);
